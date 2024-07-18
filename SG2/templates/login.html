@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f4f7, #d9e6f2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color:  #0b4889;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .form-group input {
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 10px 15px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+        }
+        button {
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #1d5086, #0056b3);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #0056b3, #003f88);
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        #error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card p-4">
+            <h1 class="text-center">Login</h1>
+            <form id="loginForm" method="POST" action="/login">
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <div id="error" class="text-danger text-center mt-2">{{ error }}</div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

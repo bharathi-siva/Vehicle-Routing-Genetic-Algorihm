@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Routing Problem</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f4f7, #d9e6f2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #0b4889;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 10px 15px;
+            width: 100%;
+        }
+        input[type="text"] {
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 10px 15px;
+            width: 100%;
+        }
+        button {
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #1d5086, #0056b3);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #0056b3, #003f88);
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card p-4">
+            <h1 class="text-center">Vehicle Routing</h1>
+            <form id="uploadForm" method="POST" action="/calculate" enctype="multipart/form-data" class="text-center">
+                <div class="form-group">
+                    <input type="file" name="file" id="fileInput" class="form-control-file" accept=".xlsx">
+                </div>
+                <div class="form-group">
+                    <input type="text-center" name="depot_id" class="form-control" placeholder="Depot" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Calculate</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
